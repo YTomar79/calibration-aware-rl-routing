@@ -89,13 +89,27 @@ the pipeline works locally:
 bash smoke_test.sh
 ```
 
-## Reproducing the results
+## Reproducing the experiments
 
-Steps 1–2 require IBM Quantum credentials; the included `results/` and
-`downloaded_calibrations/` let you inspect or rebuild paper assets (step 5)
-without them.
+The full pipeline below reproduces the reported results end to end: calibration
+snapshots → benchmark corpus → 10-seed training sweep → held-out benchmark →
+figures and tables. Steps 2–3 require IBM Quantum credentials and a network
+connection; the shipped `downloaded_calibrations/` and `results/` let you skip
+straight to step 7 (asset generation) without them.
 
-**1. Credentials** (only for fresh calibration downloads)
+Assumes Python 3.10+ and that all commands run from the repository root.
+
+### 1. Clone and install
+
+```bash
+git clone https://github.com/<your-username>/calibration-aware-rl-routing.git
+cd calibration-aware-rl-routing
+bash setup_env.sh          # creates .venv and installs pinned dependencies
+```
+
+### 2. Configure IBM Quantum credentials
+
+Only needed to download fresh calibration snapshots (step 3).
 
 ```bash
 cp quantum_credentials.example.sh quantum_credentials.sh   # fill in token + CRN
@@ -103,7 +117,9 @@ chmod 600 quantum_credentials.sh
 source quantum_credentials.sh
 ```
 
-**2. Calibration snapshots**
+### 3. Download calibration snapshots
+
+Fetches per-backend calibration data and writes a provenance manifest.
 
 ```bash
 DOWNLOAD_BACKEND_NAMES=ibm_fez,ibm_kingston,ibm_marrakesh \
@@ -111,31 +127,89 @@ DOWNLOAD_CALIBRATION_DIR=downloaded_calibrations \
 .venv/bin/python download_calibrations.py
 ```
 
-**3. Benchmark corpus**
+### 4. Build the benchmark corpus
+
+Generates the QASM circuits (Deutsch–Jozsa, QFT, GHZ at 5/8/10 qubits) used for
+training and evaluation.
 
 ```bash
 .venv/bin/pip install mqt-bench
 MQT_BENCH_ALGORITHMS=dj,qft,ghz MQT_QUBIT_COUNTS=5,8,10 \
+MQT_OUTPUT_DIR=benchmark_corpora/mqt_bench \
 .venv/bin/python prepare_mqt_corpus.py
 ```
 
-**4. Train and benchmark**
+### 5. (Optional) Generate your own hyperparameters
+
+Training in step 6 loads `optimal_hyperparams.json` from the repo root. The repo
+ships the tuned file used for the reported results, so this step is only needed
+to produce your own. It runs an Optuna TPE search and, on completion, writes the
+best configuration to that same file (plus search diagnostics under
+`tuning_artifacts/`):
 
 ```bash
-# Train (configure seeds/episodes/checkpoint dir via environment variables)
-CHECKPOINT_DIR=checkpoints NUM_TRAINING_EPISODES=40001 \
-BENCHMARK_QASM_DIR=benchmark_corpora/mqt_bench BENCHMARK_CORPUS_NAME=mqt_bench \
-.venv/bin/python scalable_quantum.py
+OPTUNA_TRIALS=50 \
+OPTUNA_STUDY_NAME=quantum_routing_tuning \
+.venv/bin/python tune_hyperparameters.py
+```
 
-# Evaluate trained checkpoints against the baselines
-REVIEW_RUN_DIRS=checkpoints \
-REVIEW_CALIBRATION_FILES=downloaded_calibrations/ibm_fez_calibration.json,downloaded_calibrations/ibm_kingston_calibration.json,downloaded_calibrations/ibm_marrakesh_calibration.json \
-REVIEW_OUTPUT_DIR=results/reviewer_benchmark \
+The resulting `optimal_hyperparams.json` is the only file step 6 needs, so once
+this finishes you can train directly. A few ways to control it:
+
+- **Keep the shipped file** and write the new one elsewhere by setting
+  `OPTIMAL_HYPERPARAMS_PATH=my_hyperparams.json`. Training only reads
+  `optimal_hyperparams.json`, so copy your file over it when ready to use it:
+  `cp my_hyperparams.json optimal_hyperparams.json`.
+- **Hand-edit** `optimal_hyperparams.json` directly — any subset of keys is
+  accepted, and unspecified values fall back to the built-in defaults.
+- **Run a larger or parallel search** with more `OPTUNA_TRIALS`, or point several
+  workers at one shared study via `OPTUNA_STORAGE` (an Optuna storage URL) or
+  `OPTUNA_JOURNAL_PATH` with a common `OPTUNA_STUDY_NAME`.
+
+### 6. Train the policy (10-seed sweep)
+
+The reported results pool ten independently seeded policies. Each is trained with
+a distinct `TRAINING_SEED_OFFSET` into its own checkpoint directory.
+
+```bash
+SEED_OFFSETS=(0 100000 200000 300000 400000 500000 600000 700000 800000 900000)
+for i in "${!SEED_OFFSETS[@]}"; do
+  TRAINING_SEED_OFFSET="${SEED_OFFSETS[$i]}" \
+  CHECKPOINT_DIR="checkpoints/seed${i}" \
+  NUM_TRAINING_EPISODES=40001 \
+  BENCHMARK_QASM_DIR=benchmark_corpora/mqt_bench \
+  BENCHMARK_CORPUS_NAME=mqt_bench BENCHMARK_CORPUS_PROB=1 \
+  .venv/bin/python scalable_quantum.py
+done
+```
+
+Training is compute-intensive; run the seeds in parallel across machines/jobs if
+available. For a single quick sanity run, use `bash smoke_test.sh` instead.
+
+### 7. Run the held-out benchmark
+
+Evaluates every seed checkpoint against the SABRE baselines across all three
+calibration snapshots (3 × 10 = 30 cells), writing per-cell shards and a pooled
+summary.
+
+```bash
+REVIEW_RUN_DIRS="checkpoints/seed0,checkpoints/seed1,checkpoints/seed2,checkpoints/seed3,checkpoints/seed4,checkpoints/seed5,checkpoints/seed6,checkpoints/seed7,checkpoints/seed8,checkpoints/seed9" \
+REVIEW_RUN_LABELS="seed0,seed1,seed2,seed3,seed4,seed5,seed6,seed7,seed8,seed9" \
+REVIEW_CALIBRATION_FILES="downloaded_calibrations/ibm_fez_calibration.json,downloaded_calibrations/ibm_kingston_calibration.json,downloaded_calibrations/ibm_marrakesh_calibration.json" \
+REVIEW_HOLDOUT_EPISODES=50 \
+REVIEW_BASELINES="sabre,qiskit_noise_aware_vf2" \
+BENCHMARK_QASM_DIR=benchmark_corpora/mqt_bench \
+BENCHMARK_CORPUS_NAME=mqt_bench BENCHMARK_CORPUS_PROB=1 \
 REVIEW_SHARD_DIR=results/reviewer_benchmark_shards \
+REVIEW_OUTPUT_DIR=results/reviewer_benchmark \
 .venv/bin/python reviewer_benchmark.py
 ```
 
-**5. Build figures and tables**
+### 8. Generate figures and tables
+
+Turns the benchmark summary and shards into the publication assets under
+`results/paper_assets/`. This step needs only the files from step 7 (or the ones
+already shipped in the repo).
 
 ```bash
 .venv/bin/python scripts/build_qce_workshop_assets.py \
@@ -143,6 +217,19 @@ REVIEW_SHARD_DIR=results/reviewer_benchmark_shards \
   --shard-dir results/reviewer_benchmark_shards \
   --out-dir results/paper_assets
 ```
+
+The regenerated `results/paper_assets/data/table01_overall_summary.csv` should
+match the numbers in the [Results](#results) table above.
+
+## Testing
+
+```bash
+.venv/bin/python -m unittest discover -s tests
+```
+
+Tests covering the benchmark schema and table generation run without optional
+heavy dependencies; environment-invariant tests are skipped when Qiskit is not
+installed.
 
 
 ## Data and dependencies
