@@ -1,10 +1,7 @@
-# Calibration-Aware Reinforcement Learning for Quantum Circuit Routing
+# Graph Reinforcement Learning for Calibration-Aware Quantum Circuit Routing
 
-A reinforcement-learning router that maps logical quantum circuits onto noisy
-hardware coupling graphs using device calibration data. A PPO policy is trained
-to insert SWAP operations that respect connectivity while maximizing the exact
-fidelity of the compiled circuit under a realistic noise model, and is evaluated
-against strong SABRE-based baselines.
+This repo contains the code, raw CSVs, and results for "Graph Reinforcement Learning for Calibration-Aware Quantum Circuit Routing" (arXiv:2606.12816v3). Submitted to QCE AI4QC Workshop 2026. 
+
 
 ## Results
 
