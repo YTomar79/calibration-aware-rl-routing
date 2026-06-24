@@ -120,16 +120,6 @@ REVIEW_SHARD_DIR=results/reviewer_benchmark_shards \
   --out-dir results/paper_assets
 ```
 
-## Testing
-
-```bash
-.venv/bin/python -m unittest discover -s tests
-```
-
-Tests covering the benchmark schema and table generation run without optional
-heavy dependencies; environment-invariant tests are skipped when Qiskit is not
-installed.
-
 ## Data and dependencies
 
 Calibration snapshots are derived from IBM Quantum backends and are included for
