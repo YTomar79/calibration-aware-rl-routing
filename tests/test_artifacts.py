@@ -105,11 +105,22 @@ class ArtifactSchemaTests(unittest.TestCase):
             return DummyCircuit(len(calls) - 1)
 
         env = QuantumRoutingEnv.__new__(QuantumRoutingEnv)
+        env.debug = False
         env.target_circuit = object()
         env.optimization_level = 3
         env._episode_seed = 123
         env.sabre_baseline_trials = 2
         env._build_qiskit_noise_aware_target = lambda: object()
+        # VF2 layout discovery runs a real PassManager; stub it so the unit test
+        # does not transpile the dummy target. Returning no layout exercises the
+        # Target+SABRE fallback path used for proxy-based candidate scoring.
+        layout_calls = []
+
+        def fake_find_layout(target, seed):
+            layout_calls.append(seed)
+            return None, "no_perfect_layout"
+
+        env._find_qiskit_noise_aware_vf2_layout = fake_find_layout
         env._compiled_metrics = lambda compiled: {
             "cost": 10.0 + compiled.idx,
             "twoq": 5 + compiled.idx,
@@ -127,9 +138,12 @@ class ArtifactSchemaTests(unittest.TestCase):
         finally:
             scalable_quantum.transpile = old_transpile
 
+        # Selection must be driven by proxy fidelity (idx 0 has the highest),
+        # never by exact fidelity (get_current_fidelity raises if called).
         self.assertEqual(selected.idx, 0)
         self.assertTrue(calls)
-        self.assertTrue(all(call.get("layout_method") == "vf2" for call in calls))
+        # VF2 layout discovery is attempted before falling back to SABRE routing.
+        self.assertTrue(layout_calls)
         self.assertTrue(all(call.get("routing_method") == "sabre" for call in calls))
 
     def test_qasm_hash_exclusion_skips_duplicates(self):
