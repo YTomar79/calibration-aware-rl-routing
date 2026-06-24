@@ -1,6 +1,6 @@
 # Graph Reinforcement Learning for Calibration-Aware Quantum Circuit Routing
 
-This repo contains the code, raw CSVs, and results for "Graph Reinforcement Learning for Calibration-Aware Quantum Circuit Routing" (arXiv:2606.12816v3). Submitted to QCE AI4QC Workshop 2026. 
+This repo contains the code, raw CSVs, and results for "Graph Reinforcement Learning for Calibration-Aware Quantum Circuit Routing" (arXiv:2606.12816v3). Submitted to IEEE QCE AI for Circuit Synthesis, Optimization, and Discovery 2026. 
 
 
 ## Repository layout
