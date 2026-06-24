@@ -1,7 +1,18 @@
 # Graph Reinforcement Learning for Calibration-Aware Quantum Circuit Routing
 
-This repo contains the code, raw CSVs, and results for "Graph Reinforcement Learning for Calibration-Aware Quantum Circuit Routing" (arXiv:2606.12816v3). Submitted to IEEE Quantum Week International Workshop on AI for Circuit Synthesis, Optimization, and Discovery 2026. 
+**Yash Vardhan Tomar**¹, **Dheeraj Peddireddy**¹
 
+¹ Purdue University
+
+[![arXiv](https://img.shields.io/badge/arXiv-2606.12816-b31b1b.svg)](https://arxiv.org/abs/2606.12816)
+
+---
+
+This repo contains the code, raw CSVs, and results for "Graph Reinforcement Learning for Calibration-Aware Quantum Circuit Routing" (arXiv:2606.12816v3). Submitted to IEEE Quantum Week International Workshop on AI for Circuit Synthesis, Optimization, and Discovery 2026.
+
+# Abstract
+
+Quantum circuit routing is a key step in compiling programs for noisy intermediate-scale quantum processors. Routes that appear efficient by standard overhead metrics can still lose fidelity when they pass through poorly calibrated couplers. We study a calibration-aware graph reinforcement-learning router that uses same-day IBM Heron r2 calibration data to choose hardware-edge SWAPs. We train the policy with proximal policy optimization and evaluate it with exact simulated fidelity across nine Munich Quantum Toolkit (MQT) Bench circuits and three calibration snapshots. Across these evaluations, pooled mean exact fidelity is 0.727, compared with 0.440 for SABRE-best20 and 0.481 for target-aware SABRE. We observed that fidelity gains came with higher routed two-qubit counts and were concentrated in 5 qubit and 8 qubit circuit families; under the fixed tree action graph, all 10 qubit families favored SABRE-best20. Overall, our results show that calibration-aware learned routing can improve fidelity beyond gate-count-driven compilation.
 
 ## Repository layout
 
@@ -102,6 +113,19 @@ reproducibility. Circuits come from [MQT Bench](https://www.cda.cit.tum.de/mqtbe
 Core dependencies: PyTorch, Qiskit, Qiskit Aer, and Optuna (see
 `requirements.txt`).
 
+## Citation
+
+If you use this code or find this work helpful, please cite:
+
+```bibtex
+@article{tomar2026calibration-aware,
+  title={Graph Reinforcement Learning for Calibration-Aware Quantum Circuit Routing},
+  author={Tomar, Yash Vardhan and Peddireddy, Dheeraj},
+  journal={arXiv preprint arXiv:2606.12816},
+  year={2026}
+}
+```
+
 ## License
 
-Released under the MIT License. See [LICENSE](LICENSE).
+Released under the [MIT License](LICENSE).
