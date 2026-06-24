@@ -11,6 +11,7 @@ from qiskit.transpiler import CouplingMap
 import json
 import os
 import glob
+import random
 import collections
 import time
 from typing import List, Tuple, Optional
@@ -77,8 +78,11 @@ def _env_flag(name: str, default: bool = False) -> bool:
 
 def _set_global_seeds(seed: int):
     seed = int(seed)
+    random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
 
 def find_latest_checkpoint(pattern="ppo_checkpoint_*.pt"):
     ckpts = glob.glob(pattern)

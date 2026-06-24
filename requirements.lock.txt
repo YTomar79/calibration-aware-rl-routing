@@ -1,3 +1,9 @@
+# Exact environment behind the reported results.
+# Platform: Linux x86-64 with CUDA 13.2 (GPU build). Captured via `pip freeze`.
+# This is a provenance record, NOT the default install path: the NVIDIA/CUDA and
+# triton pins below are Linux+GPU only and will not resolve on macOS or CPU-only
+# hosts. Use requirements.txt for a portable install; use this file only to
+# reproduce the original environment on matching hardware.
 alembic==1.18.4
 annotated-types==0.7.0
 certifi==2026.5.20

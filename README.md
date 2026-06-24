@@ -58,11 +58,11 @@ calibration-aware-rl-routing/
 │       ├── data/                  # CSV backing every figure and table
 │       └── captions.md            # Figure/table captions
 │
-├── setup_env.sh                   # Create .venv and install pinned dependencies
+├── setup_env.sh                   # Create .venv and install declared dependencies
 ├── smoke_test.sh                  # Fast end-to-end pipeline check on a small problem
 ├── quantum_credentials.example.sh # Template for IBM Quantum credentials
-├── requirements.txt               # Direct dependencies
-├── requirements.lock.txt          # Fully pinned versions used for the reported results
+├── requirements.txt               # Direct dependencies (portable install path)
+├── requirements.lock.txt          # Provenance: exact Linux+CUDA 13.2 env behind the results
 ├── LICENSE
 └── README.md
 ```
@@ -72,13 +72,21 @@ calibration-aware-rl-routing/
 Requires Python 3.10+.
 
 ```bash
-bash setup_env.sh          # creates .venv and installs pinned dependencies
+bash setup_env.sh          # creates .venv and installs the declared dependencies
 # or, manually:
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 ```
 
-`requirements.lock.txt` pins the exact versions used to produce the reported
-results.
+`requirements.txt` lists the direct dependencies and is the portable install path
+(macOS / Linux, CPU or GPU). `requirements.lock.txt` is a separate **provenance
+record** of the exact environment behind the reported results — a `pip freeze`
+from Linux x86-64 with CUDA 13.2. Because its NVIDIA/CUDA and `triton` pins are
+Linux+GPU only, it is not installed by default. To reproduce that environment
+bit-for-bit on matching hardware:
+
+```bash
+.venv/bin/pip install -r requirements.lock.txt
+```
 
 ## Quick check
 
@@ -104,7 +112,7 @@ Assumes Python 3.10+ and that all commands run from the repository root.
 ```bash
 git clone https://github.com/<your-username>/calibration-aware-rl-routing.git
 cd calibration-aware-rl-routing
-bash setup_env.sh          # creates .venv and installs pinned dependencies
+bash setup_env.sh          # creates .venv and installs the declared dependencies
 ```
 
 ### 2. Configure IBM Quantum credentials
@@ -229,7 +237,8 @@ match the numbers in the [Results](#results) table above.
 
 Tests covering the benchmark schema and table generation run without optional
 heavy dependencies; environment-invariant tests are skipped when Qiskit is not
-installed.
+installed. The same suite runs in CI (`.github/workflows/ci.yml`) on Python
+3.10–3.12, installing `requirements.txt` so a broken install fails the build.
 
 
 ## Data and dependencies

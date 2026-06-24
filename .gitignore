@@ -4,6 +4,9 @@ __pycache__/
 .venv/
 .env
 
+# Locally resolved env snapshot from setup_env.sh (do not clobber the committed lock)
+requirements.resolved.txt
+
 # Local credentials (never commit real tokens)
 quantum_credentials.sh
 
