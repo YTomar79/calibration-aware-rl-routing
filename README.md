@@ -19,16 +19,52 @@ Quantum circuit routing is a key step in compiling programs for noisy intermedia
 ## Repository layout
 
 ```text
-scalable_quantum.py          Routing environment, PPO agent, noisy-simulation evaluation, training entry point
-reviewer_benchmark.py        Held-out benchmark of the trained policy vs. SABRE baselines
-run_dqn_routing_baseline.py  DQN routing baseline on the same environment
-tune_hyperparameters.py      Optuna hyperparameter search
-prepare_mqt_corpus.py        Build the QASM benchmark corpus from MQT Bench
-download_calibrations.py     Fetch backend calibration snapshots from IBM Quantum
-scripts/                     Paper-asset generation (tables and figures)
-tests/                       Schema and invariant tests
-downloaded_calibrations/     Calibration snapshots used in the reported runs
-results/                     Benchmark summaries, per-seed shards, and paper figures/tables
+calibration-aware-rl-routing/
+│
+├── scalable_quantum.py            # Core library + training entry point:
+│                                  #   routing environment, PPO agent, noise model,
+│                                  #   exact density-matrix fidelity evaluation
+├── reviewer_benchmark.py          # Held-out evaluation of a trained policy vs. SABRE baselines
+├── run_dqn_routing_baseline.py    # DQN routing baseline on the same environment
+├── tune_hyperparameters.py        # Optuna hyperparameter search over the PPO config
+├── prepare_mqt_corpus.py          # Build the QASM benchmark corpus from MQT Bench
+├── download_calibrations.py       # Fetch backend calibration snapshots from IBM Quantum
+│
+├── scripts/                       # Result-asset generation (no training logic)
+│   ├── build_qce_workshop_assets.py        # Aggregate benchmark shards → figures + tables
+│   ├── build_paper_tables.py               # Summary JSON → LaTeX tables
+│   └── build_qce_workshop_manuscript_figures.py  # Method/flow diagrams
+│
+├── tests/                         # Unit tests for benchmark schema and env invariants
+│   ├── test_artifacts.py
+│   └── fixtures/                  # Small JSON fixture for schema/table tests
+│
+├── downloaded_calibrations/       # IBM calibration snapshots used in the reported runs
+│   ├── ibm_fez_calibration.json
+│   ├── ibm_kingston_calibration.json
+│   ├── ibm_marrakesh_calibration.json
+│   └── calibration_manifest.json  # Provenance (backend, version, snapshot time)
+│
+├── results/                       # All reported outputs
+│   ├── reviewer_benchmark/        # Pooled benchmark: summary JSON + overview plots
+│   ├── reviewer_benchmark_shards/ # Per-cell records, one dir per calibration × seed
+│   │   └── ibm_<backend>_calibration_seed<N>/
+│   │       ├── reviewer_benchmark_summary.json
+│   │       ├── reviewer_benchmark_episodes.jsonl   # Per-episode raw records
+│   │       └── *.png
+│   └── paper_assets/              # Publication-ready artifacts
+│       ├── figures/               # PNG + PDF figures
+│       ├── tables/                # LaTeX result tables
+│       ├── data/                  # CSV backing every figure and table
+│       └── captions.md            # Figure/table captions
+│
+├── setup_env.sh                   # Create .venv and install pinned dependencies
+├── smoke_test.sh                  # Fast end-to-end pipeline check on a small problem
+├── quantum_credentials.example.sh # Template for IBM Quantum credentials
+├── requirements.txt               # Direct dependencies
+├── requirements.lock.txt          # Fully pinned versions used for the reported results
+├── LICENSE
+└── README.md
 ```
 
 ## Installation
@@ -107,6 +143,7 @@ REVIEW_SHARD_DIR=results/reviewer_benchmark_shards \
   --shard-dir results/reviewer_benchmark_shards \
   --out-dir results/paper_assets
 ```
+
 
 ## Data and dependencies
 
