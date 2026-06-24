@@ -3,28 +3,6 @@
 This repo contains the code, raw CSVs, and results for "Graph Reinforcement Learning for Calibration-Aware Quantum Circuit Routing" (arXiv:2606.12816v3). Submitted to QCE AI4QC Workshop 2026. 
 
 
-## Results
-
-Held-out benchmark over 30 records (3 IBM calibration snapshots × 10 training
-seeds), reporting exact density-matrix fidelity under noisy simulation.
-
-| Router | Exact fidelity (95% CI) | Two-qubit gates | Depth |
-| --- | --- | --- | --- |
-| **Agent (this work)** | **0.727** (0.711–0.739) | 29.0 | 26.8 |
-| Target-aware SABRE | 0.481 (0.464–0.496) | 20.3 | 23.4 |
-| SABRE-best20 | 0.440 (0.437–0.443) | 20.2 | 22.2 |
-
-Paired per-cell effects (positive favors the agent, Holm-adjusted):
-
-| Comparison | Δ exact fidelity | Holm p | Cells |
-| --- | --- | --- | --- |
-| Agent vs SABRE-best20 | +0.287 (0.271–0.299) | 6.0e-6 | 30 |
-| Agent vs Target-aware SABRE | +0.246 (0.225–0.267) | 6.0e-6 | 30 |
-
-The agent improves fidelity on every calibration snapshot, trading a higher
-two-qubit gate count for the gain. Full figures, tables, and per-cell records
-are under [`results/`](results/).
-
 ## Repository layout
 
 ```text
