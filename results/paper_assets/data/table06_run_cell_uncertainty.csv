@@ -1,0 +1,15 @@
+scope,calibration_key,calibration_label,quantity,label,pooled_mean,summary_type,ci95_low,ci95_high,record_n,unique_value_n
+overall,all,All,agent_fidelity,Agent,0.7268584372791004,bootstrap_95_run_cells,0.7106411240795771,0.7389064863725963,30,10
+overall,all,All,sabre_fidelity,SABRE-best20,0.44018060064153514,bootstrap_95_run_cells,0.43749895254091625,0.44285257749919965,30,3
+overall,all,All,qiskit_noise_aware_vf2_fidelity,Target-aware SABRE,0.48074590693842617,bootstrap_95_run_cells,0.4640929385991101,0.496024435955272,30,3
+calibration,ibm_fez,Fez,agent_fidelity,Agent,0.7124770247000898,bootstrap_95_run_cells,0.6907247661723901,0.7233531539639396,10,2
+calibration,ibm_fez,Fez,sabre_fidelity,SABRE-best20,0.42948302196792254,bootstrap_95_run_cells,0.42948302196792254,0.42948302196792254,10,1
+calibration,ibm_fez,Fez,qiskit_noise_aware_vf2_fidelity,Target-aware SABRE,0.49770447242090576,bootstrap_95_run_cells,0.49770447242090576,0.49770447242090576,10,1
+calibration,ibm_kingston,Kingston,agent_fidelity,Agent,0.7292512617748415,bootstrap_95_run_cells,0.6953520320813154,0.7490091623448736,10,5
+calibration,ibm_kingston,Kingston,sabre_fidelity,SABRE-best20,0.4456019243004971,bootstrap_95_run_cells,0.4456019243004971,0.4456019243004971,10,1
+calibration,ibm_kingston,Kingston,qiskit_noise_aware_vf2_fidelity,Target-aware SABRE,0.4190666514742024,bootstrap_95_run_cells,0.4190666514742024,0.4190666514742024,10,1
+calibration,ibm_marrakesh,Marrakesh,agent_fidelity,Agent,0.7388470253623696,bootstrap_95_run_cells,0.7200577754290615,0.7501196555367092,10,3
+calibration,ibm_marrakesh,Marrakesh,sabre_fidelity,SABRE-best20,0.4454568556561852,bootstrap_95_run_cells,0.4454568556561852,0.4454568556561852,10,1
+calibration,ibm_marrakesh,Marrakesh,qiskit_noise_aware_vf2_fidelity,Target-aware SABRE,0.5254665969201707,bootstrap_95_run_cells,0.5254665969201707,0.5254665969201707,10,1
+paired_delta,all,All,agent_minus_sabre_fidelity,Agent minus SABRE-best20,0.2866778366375654,bootstrap_95_run_cells,0.27119225299149624,0.29842255239016474,30,10
+paired_delta,all,All,agent_minus_qiskit_noise_aware_vf2_fidelity,Agent minus Target-aware SABRE,0.24611253034067399,bootstrap_95_run_cells,0.22539190489676159,0.26728784901843333,30,10

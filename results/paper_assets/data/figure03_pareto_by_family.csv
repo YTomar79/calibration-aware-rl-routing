@@ -1,0 +1,25 @@
+class_key,class_label,method_key,method_label,two_qubit_count,two_qubit_count_source,exact_fidelity,num_episodes
+mqt_bench:dj_alg_5q,DJ-5q,agent,Agent,6.0,reported_summary,0.24679358824803344,150
+mqt_bench:ghz_alg_5q,GHZ-5q,agent,Agent,8.0,reported_summary,0.9785903245067252,150
+mqt_bench:qft_alg_5q,QFT-5q,agent,Agent,17.0,reported_summary,0.9648716109590183,240
+mqt_bench:dj_alg_8q,DJ-8q,agent,Agent,14.0,reported_summary,0.24009400052700217,60
+mqt_bench:qft_alg_8q,QFT-8q,agent,Agent,64.0,reported_summary,0.8439225670322149,90
+mqt_bench:qft_alg_10q,QFT-10q,agent,Agent,104.2,reported_summary,0.7615936102658456,150
+mqt_bench:dj_alg_5q,DJ-5q,sabre,SABRE-best20,5.0,observed,0.04982684844918653,150
+mqt_bench:ghz_alg_5q,GHZ-5q,sabre,SABRE-best20,4.0,observed,0.2482203124681619,150
+mqt_bench:qft_alg_5q,QFT-5q,sabre,SABRE-best20,14.0,observed,0.6063006997447559,240
+mqt_bench:dj_alg_8q,DJ-8q,sabre,SABRE-best20,11.0,observed,0.000631011629295047,60
+mqt_bench:ghz_alg_8q,GHZ-8q,sabre,SABRE-best20,8.0,observed,0.24645138400582944,240
+mqt_bench:qft_alg_8q,QFT-8q,sabre,SABRE-best20,49.0,observed,0.22515729016838892,90
+mqt_bench:dj_alg_10q,DJ-10q,sabre,SABRE-best20,16.0,observed,0.23747983320614324,180
+mqt_bench:ghz_alg_10q,GHZ-10q,sabre,SABRE-best20,12.0,observed,0.9544163819868212,240
+mqt_bench:qft_alg_10q,QFT-10q,sabre,SABRE-best20,86.0,observed,0.7919667217180268,150
+mqt_bench:dj_alg_5q,DJ-5q,qiskit_noise_aware_vf2,Target-aware SABRE,5.0,observed,0.18136995374134468,150
+mqt_bench:ghz_alg_5q,GHZ-5q,qiskit_noise_aware_vf2,Target-aware SABRE,4.0,observed,0.24870087737860852,150
+mqt_bench:qft_alg_5q,QFT-5q,qiskit_noise_aware_vf2,Target-aware SABRE,14.0,observed,0.7583809133330334,240
+mqt_bench:dj_alg_8q,DJ-8q,qiskit_noise_aware_vf2,Target-aware SABRE,11.0,observed,0.00030091541377126184,60
+mqt_bench:ghz_alg_8q,GHZ-8q,qiskit_noise_aware_vf2,Target-aware SABRE,8.083333333333334,observed,0.2467357520542273,240
+mqt_bench:qft_alg_8q,QFT-8q,qiskit_noise_aware_vf2,Target-aware SABRE,49.44444444444444,observed,0.23004541164685782,90
+mqt_bench:dj_alg_10q,DJ-10q,qiskit_noise_aware_vf2,Target-aware SABRE,16.0,observed,0.23801537249956506,180
+mqt_bench:ghz_alg_10q,GHZ-10q,qiskit_noise_aware_vf2,Target-aware SABRE,12.0,observed,0.9568443069927789,240
+mqt_bench:qft_alg_10q,QFT-10q,qiskit_noise_aware_vf2,Target-aware SABRE,86.13333333333334,observed,0.8144846223031456,150

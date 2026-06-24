@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.env
+
+# Local credentials (never commit real tokens)
+quantum_credentials.sh
+
+# Training / tuning artifacts
+*_checkpoints/
+*tensorboard/
+*.pt
+tuning_artifacts/
+optimal_hyperparams.json
+reward_calibration*.json
+
+# Local scratch runs
+smoke_checkpoints/
+smoke_tensorboard/
+smoke_reviewer_benchmark/
+benchmark_corpora/
+
+# OS
+.DS_Store

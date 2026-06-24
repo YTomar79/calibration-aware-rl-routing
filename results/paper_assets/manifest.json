@@ -1,0 +1,29 @@
+{
+  "figures": [
+    "/Users/btf/Desktop/quantum_folder_1/quantum_folder_1/paper_artifacts/qce_workshop_2026/figures/figure01_fidelity_by_calibration.pdf",
+    "/Users/btf/Desktop/quantum_folder_1/quantum_folder_1/paper_artifacts/qce_workshop_2026/figures/figure01_fidelity_by_calibration.png",
+    "/Users/btf/Desktop/quantum_folder_1/quantum_folder_1/paper_artifacts/qce_workshop_2026/figures/figure02_family_breakdown.pdf",
+    "/Users/btf/Desktop/quantum_folder_1/quantum_folder_1/paper_artifacts/qce_workshop_2026/figures/figure02_family_breakdown.png",
+    "/Users/btf/Desktop/quantum_folder_1/quantum_folder_1/paper_artifacts/qce_workshop_2026/figures/figure03_pareto_by_family.pdf",
+    "/Users/btf/Desktop/quantum_folder_1/quantum_folder_1/paper_artifacts/qce_workshop_2026/figures/figure03_pareto_by_family.png",
+    "/Users/btf/Desktop/quantum_folder_1/quantum_folder_1/paper_artifacts/qce_workshop_2026/figures/figure04_record_fidelity_gains.pdf",
+    "/Users/btf/Desktop/quantum_folder_1/quantum_folder_1/paper_artifacts/qce_workshop_2026/figures/figure04_record_fidelity_gains.png"
+  ],
+  "tables": [
+    "/Users/btf/Desktop/quantum_folder_1/quantum_folder_1/paper_artifacts/qce_workshop_2026/tables/table01_overall_summary.tex",
+    "/Users/btf/Desktop/quantum_folder_1/quantum_folder_1/paper_artifacts/qce_workshop_2026/tables/table02_paired_effects.tex",
+    "/Users/btf/Desktop/quantum_folder_1/quantum_folder_1/paper_artifacts/qce_workshop_2026/tables/table03_per_calibration.tex",
+    "/Users/btf/Desktop/quantum_folder_1/quantum_folder_1/paper_artifacts/qce_workshop_2026/tables/table04_per_class.tex"
+  ],
+  "data": [
+    "/Users/btf/Desktop/quantum_folder_1/quantum_folder_1/paper_artifacts/qce_workshop_2026/data/figure01_fidelity_by_calibration.csv",
+    "/Users/btf/Desktop/quantum_folder_1/quantum_folder_1/paper_artifacts/qce_workshop_2026/data/figure02_family_breakdown.csv",
+    "/Users/btf/Desktop/quantum_folder_1/quantum_folder_1/paper_artifacts/qce_workshop_2026/data/figure03_pareto_by_family.csv",
+    "/Users/btf/Desktop/quantum_folder_1/quantum_folder_1/paper_artifacts/qce_workshop_2026/data/table01_overall_summary.csv",
+    "/Users/btf/Desktop/quantum_folder_1/quantum_folder_1/paper_artifacts/qce_workshop_2026/data/table02_paired_effects.csv",
+    "/Users/btf/Desktop/quantum_folder_1/quantum_folder_1/paper_artifacts/qce_workshop_2026/data/table03_per_calibration.csv",
+    "/Users/btf/Desktop/quantum_folder_1/quantum_folder_1/paper_artifacts/qce_workshop_2026/data/table04_per_class.csv",
+    "/Users/btf/Desktop/quantum_folder_1/quantum_folder_1/paper_artifacts/qce_workshop_2026/data/table05_record_fidelity_gains.csv",
+    "/Users/btf/Desktop/quantum_folder_1/quantum_folder_1/paper_artifacts/qce_workshop_2026/data/table06_run_cell_uncertainty.csv"
+  ]
+}

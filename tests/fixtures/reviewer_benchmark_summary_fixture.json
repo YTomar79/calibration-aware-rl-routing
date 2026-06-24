@@ -1,0 +1,66 @@
+{
+  "protocol": {
+    "secondary_router_comparison_statistical_unit": "run_dir x calibration_file cluster",
+    "holm_family_size": 1,
+    "require_agent_completion": true,
+    "min_agent_completion_rate": 0.98,
+    "baseline_episode_counts": {
+      "sabre": 20,
+      "sabre_trivial_layout": 20,
+      "qiskit_noise_aware_vf2": 20,
+      "greedy": 20,
+      "lookahead": 20,
+      "random": 20
+    }
+  },
+  "aggregate": {
+    "agent_fidelity": {"mean_across_runs": 0.12},
+    "agent_twoq": {"mean_across_runs": 40},
+    "agent_depth": {"mean_across_runs": 90},
+    "agent_wall_seconds": {"mean_across_runs": 0.04},
+    "agent_completed": {"mean_across_runs": 1.0},
+    "agent_timed_out": {"mean_across_runs": 0.0},
+    "agent_progress": {"mean_across_runs": 1.0},
+    "agent_effective_max_steps": {"mean_across_runs": 240},
+    "sabre_fidelity": {"mean_across_runs": 0.10},
+    "sabre_twoq": {"mean_across_runs": 44},
+    "sabre_depth": {"mean_across_runs": 96},
+    "sabre_wall_seconds": {"mean_across_runs": 0.02},
+    "sabre_trivial_layout_fidelity": {"mean_across_runs": 0.09},
+    "qiskit_noise_aware_vf2_fidelity": {"mean_across_runs": 0.11},
+    "greedy_fidelity": {"mean_across_runs": 0.07},
+    "lookahead_fidelity": {"mean_across_runs": 0.08},
+    "random_fidelity": {"mean_across_runs": 0.02}
+  },
+  "completion": {
+    "agent_completion_rate": 1.0,
+    "agent_timeout_rate": 0.0,
+    "agent_mean_progress": 1.0,
+    "per_circuit_class": {
+      "fixture": {
+        "count": 20,
+        "agent_completion_rate": 1.0,
+        "agent_timeout_rate": 0.0,
+        "agent_mean_progress": 1.0
+      }
+    }
+  },
+  "agent_completion_rate": 1.0,
+  "agent_timeout_rate": 0.0,
+  "agent_mean_progress": 1.0,
+  "paired_tests": {
+    "agent_vs_sabre_fidelity": {
+      "pvalue": 0.01,
+      "pvalue_holm": 0.03,
+      "statistical_unit": "run_dir_x_calibration_file_cluster",
+      "num_clusters": 8
+    }
+  },
+  "effect_sizes": {
+    "agent_vs_sabre_fidelity": {
+      "mean_improvement": 0.02,
+      "mean_relative_improvement": 0.2,
+      "rank_biserial": 0.7
+    }
+  }
+}

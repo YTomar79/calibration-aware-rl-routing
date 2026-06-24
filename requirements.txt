@@ -1,0 +1,9 @@
+numpy
+scipy
+matplotlib
+optuna
+torch
+dill
+qiskit
+qiskit-aer
+qiskit-ibm-runtime

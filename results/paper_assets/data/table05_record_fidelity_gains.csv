@@ -1,0 +1,61 @@
+calibration_key,calibration_label,seed_label,baseline_key,baseline_label,agent_minus_baseline_fidelity
+ibm_fez,Fez,seed0,sabre,SABRE-best20,0.29387013199601714
+ibm_fez,Fez,seed0,qiskit_noise_aware_vf2,Target-aware SABRE,0.2256486815430339
+ibm_fez,Fez,seed1,sabre,SABRE-best20,0.29387013199601714
+ibm_fez,Fez,seed1,qiskit_noise_aware_vf2,Target-aware SABRE,0.2256486815430339
+ibm_fez,Fez,seed2,sabre,SABRE-best20,0.29387013199601714
+ibm_fez,Fez,seed2,qiskit_noise_aware_vf2,Target-aware SABRE,0.2256486815430339
+ibm_fez,Fez,seed3,sabre,SABRE-best20,0.29387013199601714
+ibm_fez,Fez,seed3,qiskit_noise_aware_vf2,Target-aware SABRE,0.2256486815430339
+ibm_fez,Fez,seed4,sabre,SABRE-best20,0.29387013199601714
+ibm_fez,Fez,seed4,qiskit_noise_aware_vf2,Target-aware SABRE,0.2256486815430339
+ibm_fez,Fez,seed5,sabre,SABRE-best20,0.29387013199601714
+ibm_fez,Fez,seed5,qiskit_noise_aware_vf2,Target-aware SABRE,0.2256486815430339
+ibm_fez,Fez,seed6,sabre,SABRE-best20,0.29387013199601714
+ibm_fez,Fez,seed6,qiskit_noise_aware_vf2,Target-aware SABRE,0.2256486815430339
+ibm_fez,Fez,seed7,sabre,SABRE-best20,0.18510883935751882
+ibm_fez,Fez,seed7,qiskit_noise_aware_vf2,Target-aware SABRE,0.1168873889045356
+ibm_fez,Fez,seed8,sabre,SABRE-best20,0.29387013199601714
+ibm_fez,Fez,seed8,qiskit_noise_aware_vf2,Target-aware SABRE,0.2256486815430339
+ibm_fez,Fez,seed9,sabre,SABRE-best20,0.29387013199601714
+ibm_fez,Fez,seed9,qiskit_noise_aware_vf2,Target-aware SABRE,0.2256486815430339
+ibm_kingston,Kingston,seed0,sabre,SABRE-best20,0.304826971943427
+ibm_kingston,Kingston,seed0,qiskit_noise_aware_vf2,Target-aware SABRE,0.3313622447697216
+ibm_kingston,Kingston,seed1,sabre,SABRE-best20,0.304826971943427
+ibm_kingston,Kingston,seed1,qiskit_noise_aware_vf2,Target-aware SABRE,0.3313622447697216
+ibm_kingston,Kingston,seed2,sabre,SABRE-best20,0.2860485380493428
+ibm_kingston,Kingston,seed2,qiskit_noise_aware_vf2,Target-aware SABRE,0.3125838108756374
+ibm_kingston,Kingston,seed3,sabre,SABRE-best20,0.304826971943427
+ibm_kingston,Kingston,seed3,qiskit_noise_aware_vf2,Target-aware SABRE,0.3313622447697216
+ibm_kingston,Kingston,seed4,sabre,SABRE-best20,0.304826971943427
+ibm_kingston,Kingston,seed4,qiskit_noise_aware_vf2,Target-aware SABRE,0.3313622447697216
+ibm_kingston,Kingston,seed5,sabre,SABRE-best20,0.28605461664610377
+ibm_kingston,Kingston,seed5,qiskit_noise_aware_vf2,Target-aware SABRE,0.31258988947239835
+ibm_kingston,Kingston,seed6,sabre,SABRE-best20,0.304826971943427
+ibm_kingston,Kingston,seed6,qiskit_noise_aware_vf2,Target-aware SABRE,0.3313622447697216
+ibm_kingston,Kingston,seed7,sabre,SABRE-best20,0.1353338627741767
+ibm_kingston,Kingston,seed7,qiskit_noise_aware_vf2,Target-aware SABRE,0.16186913560047128
+ibm_kingston,Kingston,seed8,sabre,SABRE-best20,0.3000945256132588
+ibm_kingston,Kingston,seed8,qiskit_noise_aware_vf2,Target-aware SABRE,0.32662979843955336
+ibm_kingston,Kingston,seed9,sabre,SABRE-best20,0.304826971943427
+ibm_kingston,Kingston,seed9,qiskit_noise_aware_vf2,Target-aware SABRE,0.3313622447697216
+ibm_marrakesh,Marrakesh,seed0,sabre,SABRE-best20,0.304662799880524
+ibm_marrakesh,Marrakesh,seed0,qiskit_noise_aware_vf2,Target-aware SABRE,0.2246530586165385
+ibm_marrakesh,Marrakesh,seed1,sabre,SABRE-best20,0.304662799880524
+ibm_marrakesh,Marrakesh,seed1,qiskit_noise_aware_vf2,Target-aware SABRE,0.2246530586165385
+ibm_marrakesh,Marrakesh,seed2,sabre,SABRE-best20,0.2858827478036695
+ibm_marrakesh,Marrakesh,seed2,qiskit_noise_aware_vf2,Target-aware SABRE,0.205873006539684
+ibm_marrakesh,Marrakesh,seed3,sabre,SABRE-best20,0.304662799880524
+ibm_marrakesh,Marrakesh,seed3,qiskit_noise_aware_vf2,Target-aware SABRE,0.2246530586165385
+ibm_marrakesh,Marrakesh,seed4,sabre,SABRE-best20,0.304662799880524
+ibm_marrakesh,Marrakesh,seed4,qiskit_noise_aware_vf2,Target-aware SABRE,0.2246530586165385
+ibm_marrakesh,Marrakesh,seed5,sabre,SABRE-best20,0.304662799880524
+ibm_marrakesh,Marrakesh,seed5,qiskit_noise_aware_vf2,Target-aware SABRE,0.2246530586165385
+ibm_marrakesh,Marrakesh,seed6,sabre,SABRE-best20,0.304662799880524
+ibm_marrakesh,Marrakesh,seed6,qiskit_noise_aware_vf2,Target-aware SABRE,0.2246530586165385
+ibm_marrakesh,Marrakesh,seed7,sabre,SABRE-best20,0.21071655021398317
+ibm_marrakesh,Marrakesh,seed7,qiskit_noise_aware_vf2,Target-aware SABRE,0.13070680894999764
+ibm_marrakesh,Marrakesh,seed8,sabre,SABRE-best20,0.304662799880524
+ibm_marrakesh,Marrakesh,seed8,qiskit_noise_aware_vf2,Target-aware SABRE,0.2246530586165385
+ibm_marrakesh,Marrakesh,seed9,sabre,SABRE-best20,0.304662799880524
+ibm_marrakesh,Marrakesh,seed9,qiskit_noise_aware_vf2,Target-aware SABRE,0.2246530586165385

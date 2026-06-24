@@ -1,0 +1,997 @@
+{
+  "protocol": {
+    "holdout_episodes": 50,
+    "holdout_start_seed": 70000,
+    "optimization_level": 3,
+    "sabre_baseline_trials": 20,
+    "policy_backbone": "gnn",
+    "reward_mode": "shaped",
+    "zero_noise_features": false,
+    "calibration_feature_mask": "",
+    "train_num_qubits": 10,
+    "train_max_steps": 200,
+    "train_max_steps_base": 100,
+    "train_max_steps_per_2q": 8.0,
+    "train_max_steps_cap": 2000,
+    "incomplete_episode_penalty": 10.0,
+    "calibration_files": [
+      "/workspace/downloaded_calibrations/ibm_marrakesh_calibration.json"
+    ],
+    "calibration_snapshots": [
+      {
+        "path": "/workspace/downloaded_calibrations/ibm_marrakesh_calibration.json",
+        "backend_name": "ibm_marrakesh",
+        "last_update_date": "2026-05-21 11:01:04-04:00",
+        "requested_datetime": null,
+        "downloaded_at_utc": "2026-05-21T15:53:49.411378+00:00",
+        "age_days": 4.161328088773148,
+        "fresh_within_max_age": true
+      }
+    ],
+    "max_calibration_age_days": 45,
+    "require_fresh_calibrations": true,
+    "missing_calibration_files": [],
+    "circuit_mix": {
+      "random_2q_prob": 0.45,
+      "qaoa_prob": 0.2,
+      "quantum_volume_prob": 0.2,
+      "vqe_prob": 0.15,
+      "clifford_prob": 0.0,
+      "positive_control_prob": 0.0
+    },
+    "benchmark_corpus": {
+      "name": "mqt_bench",
+      "qasm_files": null,
+      "qasm_dir": "/workspace/benchmark_corpora/mqt_bench",
+      "probability": 1.0,
+      "compatible_qasm_record_count": 9,
+      "sample_records": [
+        {
+          "path": "/workspace/benchmark_corpora/mqt_bench/ghz_alg_8q.qasm",
+          "name": "ghz_alg_8q",
+          "source_sha256": "75eeec3f616e5ec4de16719fdfb2c254f2902bf7bb01369bfaaead2670044751",
+          "circuit_sha256": "3da96a5bf3264bc68ea02bdbd5b21f7c51cdafeaa5e37d5ec4d2eae9d0ef92d2",
+          "num_qubits": 10,
+          "depth": 8,
+          "size": 8
+        },
+        {
+          "path": "/workspace/benchmark_corpora/mqt_bench/ghz_alg_5q.qasm",
+          "name": "ghz_alg_5q",
+          "source_sha256": "faf6543cecf3c7ceaf4dfc8e3b5dda5f8f4f5a7853b9470e107e24c77533c16c",
+          "circuit_sha256": "ec16aa447bee0fd72d37ca807d98c5be2042ed63dbcc79bc497f3de83274a17d",
+          "num_qubits": 10,
+          "depth": 5,
+          "size": 5
+        },
+        {
+          "path": "/workspace/benchmark_corpora/mqt_bench/qft_alg_5q.qasm",
+          "name": "qft_alg_5q",
+          "source_sha256": "bb80a0273b61bd5853d708f316d21b68a6b30c3fa2fc214e4ef8bef348c0ce58",
+          "circuit_sha256": "a1335b4be8e11f286d69012aa7398d531b311b1d82140ceb191769e8c1e502b4",
+          "num_qubits": 10,
+          "depth": 1,
+          "size": 1
+        },
+        {
+          "path": "/workspace/benchmark_corpora/mqt_bench/qft_alg_10q.qasm",
+          "name": "qft_alg_10q",
+          "source_sha256": "a1a9fbec08e177bbe5e0d861bc84284b289712ba5ba34e5b1ec8dc2ef530cadf",
+          "circuit_sha256": "23e1d95173e1d55e4affaac9b0b65d9b3dcd1510b1860869ac1b3497bab53adb",
+          "num_qubits": 10,
+          "depth": 1,
+          "size": 1
+        },
+        {
+          "path": "/workspace/benchmark_corpora/mqt_bench/qft_alg_8q.qasm",
+          "name": "qft_alg_8q",
+          "source_sha256": "9be538e01cdb74eb5f58f77a3109c290bf34c750e0e57a828891746547ae2d46",
+          "circuit_sha256": "32e86bdbf11a0ffeeb998604d21a4416e652b466f7fbd346c6f15e3e5f46195c",
+          "num_qubits": 10,
+          "depth": 1,
+          "size": 1
+        },
+        {
+          "path": "/workspace/benchmark_corpora/mqt_bench/ghz_alg_10q.qasm",
+          "name": "ghz_alg_10q",
+          "source_sha256": "d33ef3c85cb95b7b09d33597001a4fabee0cb51e1c09c97de3cd12e7504055e8",
+          "circuit_sha256": "59a620f11381196837749e9f326a6993f3cd2552c191d2a3ae525efaead3a1d7",
+          "num_qubits": 10,
+          "depth": 10,
+          "size": 10
+        },
+        {
+          "path": "/workspace/benchmark_corpora/mqt_bench/dj_alg_5q.qasm",
+          "name": "dj_alg_5q",
+          "source_sha256": "67f01341b5a1c92c8208670eaff02e19495e26faca14f428eca682e66928e586",
+          "circuit_sha256": "0d9ee5beda3d96f4263168c0f8912bbe0961d67c34f210e3fd5c7f40a2510ed8",
+          "num_qubits": 10,
+          "depth": 4,
+          "size": 11
+        },
+        {
+          "path": "/workspace/benchmark_corpora/mqt_bench/dj_alg_10q.qasm",
+          "name": "dj_alg_10q",
+          "source_sha256": "1d480e4bb932a869b3d9b726e349a0734677b3e8ac3b83192b17776768974124",
+          "circuit_sha256": "c8cb0e70034256b2380f048a4a7c0da9522e0d116ea625534faaf60c18235d34",
+          "num_qubits": 10,
+          "depth": 4,
+          "size": 21
+        },
+        {
+          "path": "/workspace/benchmark_corpora/mqt_bench/dj_alg_8q.qasm",
+          "name": "dj_alg_8q",
+          "source_sha256": "9b1b9af27ca9f36398cb99b03dd9f14e2784163d04bedd4647de349779043e4d",
+          "circuit_sha256": "da4c044fd3ff1ac6cf5cf5b799edf127ad0a420669482913a8546e122826dd3e",
+          "num_qubits": 10,
+          "depth": 4,
+          "size": 17
+        }
+      ]
+    },
+    "external_baseline_files": [],
+    "required_baselines": [
+      "sabre",
+      "qiskit_noise_aware_vf2"
+    ],
+    "baseline_episode_counts": {
+      "qiskit_noise_aware_vf2": 50,
+      "sabre": 50
+    },
+    "baseline_missing_allowed": false,
+    "require_benchmark_corpus": true,
+    "require_agent_completion": true,
+    "min_agent_completion_rate": 0.98,
+    "secondary_router_comparison_statistical_unit": "run_dir x calibration_file cluster",
+    "holm_family_size": 7
+  },
+  "artifact_metadata": {
+    "git_revision": null,
+    "python_version": "3.11.14 | packaged by conda-forge | (main, Jan 26 2026, 23:48:32) [GCC 14.3.0]",
+    "package_versions": {
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "qiskit": "2.4.1",
+      "qiskit-aer": "0.17.2",
+      "torch": "2.12.0"
+    }
+  },
+  "per_run": [
+    {
+      "run_dir": "/workspace/mqt_completion_finetune/seed8_checkpoints",
+      "calibration_file": "/workspace/downloaded_calibrations/ibm_marrakesh_calibration.json",
+      "checkpoint_path": "/workspace/mqt_completion_finetune/seed8_checkpoints/ppo_checkpoint_40000.pt",
+      "summary": {
+        "agent_fidelity": {
+          "mean": 0.7501196555367092,
+          "std": 0.3060135164764146
+        },
+        "agent_cost": {
+          "mean": 29.247600000000002,
+          "std": 28.36959348034441
+        },
+        "agent_twoq": {
+          "mean": 28.98,
+          "std": 28.14213211538884
+        },
+        "agent_depth": {
+          "mean": 26.76,
+          "std": 23.73399250020948
+        },
+        "agent_wall_seconds": {
+          "mean": 5.4695066442400275,
+          "std": 0.8881109347824485
+        },
+        "agent_completed": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "agent_timed_out": {
+          "mean": 0.0,
+          "std": 0.0
+        },
+        "agent_progress": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "agent_effective_max_steps": {
+          "mean": 239.36,
+          "std": 94.39783048354448
+        },
+        "trivial_fidelity": {
+          "mean": NaN,
+          "std": NaN
+        },
+        "trivial_cost": {
+          "mean": NaN,
+          "std": NaN
+        },
+        "trivial_twoq": {
+          "mean": NaN,
+          "std": NaN
+        },
+        "trivial_depth": {
+          "mean": NaN,
+          "std": NaN
+        },
+        "sabre_fidelity": {
+          "mean": 0.4454568556561852,
+          "std": 0.35324533788425494
+        },
+        "sabre_cost": {
+          "mean": 20.4616,
+          "std": 24.24881765035153
+        },
+        "sabre_twoq": {
+          "mean": 20.24,
+          "std": 24.04791882887166
+        },
+        "sabre_depth": {
+          "mean": 22.16,
+          "std": 20.377791833267903
+        },
+        "sabre_wall_seconds": {
+          "mean": 4.286216188699764,
+          "std": 0.11584351335493503
+        },
+        "sabre_trivial_layout_fidelity": {
+          "mean": NaN,
+          "std": NaN
+        },
+        "sabre_trivial_layout_cost": {
+          "mean": NaN,
+          "std": NaN
+        },
+        "sabre_trivial_layout_twoq": {
+          "mean": NaN,
+          "std": NaN
+        },
+        "sabre_trivial_layout_depth": {
+          "mean": NaN,
+          "std": NaN
+        },
+        "sabre_trivial_layout_wall_seconds": {
+          "mean": NaN,
+          "std": NaN
+        },
+        "lookahead_fidelity": {
+          "mean": NaN,
+          "std": NaN
+        },
+        "lookahead_cost": {
+          "mean": NaN,
+          "std": NaN
+        },
+        "lookahead_twoq": {
+          "mean": NaN,
+          "std": NaN
+        },
+        "lookahead_depth": {
+          "mean": NaN,
+          "std": NaN
+        },
+        "qiskit_noise_aware_vf2_fidelity": {
+          "mean": 0.5254665969201707,
+          "std": 0.3552508574796646
+        },
+        "qiskit_noise_aware_vf2_cost": {
+          "mean": 20.4958,
+          "std": 24.280634348385547
+        },
+        "qiskit_noise_aware_vf2_twoq": {
+          "mean": 20.26,
+          "std": 24.072232966636065
+        },
+        "qiskit_noise_aware_vf2_depth": {
+          "mean": 23.58,
+          "std": 21.312052927862208
+        },
+        "greedy_fidelity": {
+          "mean": NaN,
+          "std": NaN
+        },
+        "greedy_cost": {
+          "mean": NaN,
+          "std": NaN
+        },
+        "greedy_twoq": {
+          "mean": NaN,
+          "std": NaN
+        },
+        "greedy_depth": {
+          "mean": NaN,
+          "std": NaN
+        },
+        "random_fidelity": {
+          "mean": NaN,
+          "std": NaN
+        },
+        "random_cost": {
+          "mean": NaN,
+          "std": NaN
+        },
+        "random_twoq": {
+          "mean": NaN,
+          "std": NaN
+        },
+        "random_depth": {
+          "mean": NaN,
+          "std": NaN
+        }
+      },
+      "num_episode_pairs": 50
+    }
+  ],
+  "external_baselines": {
+    "files": [],
+    "merged_episode_metrics": 0
+  },
+  "pooled_episode_pairs": 50,
+  "circuit_class_counts": {
+    "mqt_bench:qft_alg_10q": 5,
+    "mqt_bench:dj_alg_10q": 6,
+    "mqt_bench:ghz_alg_10q": 8,
+    "mqt_bench:qft_alg_5q": 8,
+    "mqt_bench:dj_alg_5q": 5,
+    "mqt_bench:ghz_alg_5q": 5,
+    "mqt_bench:ghz_alg_8q": 8,
+    "mqt_bench:qft_alg_8q": 3,
+    "mqt_bench:dj_alg_8q": 2
+  },
+  "per_circuit_class": {
+    "mqt_bench:qft_alg_10q": {
+      "count": 5,
+      "agent_fidelity_mean": 0.7927768266500947,
+      "agent_twoq_mean": 104.2,
+      "agent_depth_mean": 86.8,
+      "qiskit_noise_aware_vf2_fidelity_mean": 0.8388058494412582,
+      "qiskit_noise_aware_vf2_twoq_mean": 86.0,
+      "qiskit_noise_aware_vf2_depth_mean": 78.0,
+      "sabre_fidelity_mean": 0.8225873152810955,
+      "sabre_twoq_mean": 86.0,
+      "sabre_depth_mean": 75.0
+    },
+    "mqt_bench:dj_alg_10q": {
+      "count": 6,
+      "agent_fidelity_mean": 0.23669724327422292,
+      "agent_twoq_mean": 21.0,
+      "agent_depth_mean": 21.0,
+      "qiskit_noise_aware_vf2_fidelity_mean": 0.23970576827500645,
+      "qiskit_noise_aware_vf2_twoq_mean": 16.0,
+      "qiskit_noise_aware_vf2_depth_mean": 24.0,
+      "sabre_fidelity_mean": 0.23891223002297327,
+      "sabre_twoq_mean": 16.0,
+      "sabre_depth_mean": 21.833333333333332
+    },
+    "mqt_bench:ghz_alg_10q": {
+      "count": 8,
+      "agent_fidelity_mean": 0.9393970678269171,
+      "agent_twoq_mean": 28.0,
+      "agent_depth_mean": 17.0,
+      "qiskit_noise_aware_vf2_fidelity_mean": 0.9629654330591353,
+      "qiskit_noise_aware_vf2_twoq_mean": 12.0,
+      "qiskit_noise_aware_vf2_depth_mean": 13.0,
+      "sabre_fidelity_mean": 0.9623821320401,
+      "sabre_twoq_mean": 12.0,
+      "sabre_depth_mean": 13.0
+    },
+    "mqt_bench:qft_alg_5q": {
+      "count": 8,
+      "agent_fidelity_mean": 0.9684240558936956,
+      "agent_twoq_mean": 17.0,
+      "agent_depth_mean": 29.0,
+      "qiskit_noise_aware_vf2_fidelity_mean": 0.9726194289359902,
+      "qiskit_noise_aware_vf2_twoq_mean": 14.0,
+      "qiskit_noise_aware_vf2_depth_mean": 25.625,
+      "sabre_fidelity_mean": 0.6077433823869587,
+      "sabre_twoq_mean": 14.0,
+      "sabre_depth_mean": 23.0
+    },
+    "mqt_bench:dj_alg_5q": {
+      "count": 5,
+      "agent_fidelity_mean": 0.24709473398317697,
+      "agent_twoq_mean": 6.0,
+      "agent_depth_mean": 10.0,
+      "qiskit_noise_aware_vf2_fidelity_mean": 0.2473808686271791,
+      "qiskit_noise_aware_vf2_twoq_mean": 5.0,
+      "qiskit_noise_aware_vf2_depth_mean": 9.6,
+      "sabre_fidelity_mean": 0.04982739207940592,
+      "sabre_twoq_mean": 5.0,
+      "sabre_depth_mean": 8.0
+    },
+    "mqt_bench:ghz_alg_5q": {
+      "count": 5,
+      "agent_fidelity_mean": 0.97917024029705,
+      "agent_twoq_mean": 8.0,
+      "agent_depth_mean": 7.0,
+      "qiskit_noise_aware_vf2_fidelity_mean": 0.24900022421446275,
+      "qiskit_noise_aware_vf2_twoq_mean": 4.0,
+      "qiskit_noise_aware_vf2_depth_mean": 5.0,
+      "sabre_fidelity_mean": 0.2486446625891395,
+      "sabre_twoq_mean": 4.0,
+      "sabre_depth_mean": 5.0
+    },
+    "mqt_bench:ghz_alg_8q": {
+      "count": 8,
+      "agent_fidelity_mean": 0.9558596173670014,
+      "agent_twoq_mean": 19.0,
+      "agent_depth_mean": 13.0,
+      "qiskit_noise_aware_vf2_fidelity_mean": 0.24725330518930144,
+      "qiskit_noise_aware_vf2_twoq_mean": 8.0,
+      "qiskit_noise_aware_vf2_depth_mean": 9.0,
+      "sabre_fidelity_mean": 0.24714698791082435,
+      "sabre_twoq_mean": 8.0,
+      "sabre_depth_mean": 9.0
+    },
+    "mqt_bench:qft_alg_8q": {
+      "count": 3,
+      "agent_fidelity_mean": 0.8659295396235355,
+      "agent_twoq_mean": 64.0,
+      "agent_depth_mean": 63.333333333333336,
+      "qiskit_noise_aware_vf2_fidelity_mean": 0.2321517291561941,
+      "qiskit_noise_aware_vf2_twoq_mean": 49.333333333333336,
+      "qiskit_noise_aware_vf2_depth_mean": 52.0,
+      "sabre_fidelity_mean": 0.2316560162796235,
+      "sabre_twoq_mean": 49.0,
+      "sabre_depth_mean": 49.0
+    },
+    "mqt_bench:dj_alg_8q": {
+      "count": 2,
+      "agent_fidelity_mean": 0.24167788248349767,
+      "agent_twoq_mean": 14.0,
+      "agent_depth_mean": 15.5,
+      "qiskit_noise_aware_vf2_fidelity_mean": 7.920637020091406e-16,
+      "qiskit_noise_aware_vf2_twoq_mean": 11.0,
+      "qiskit_noise_aware_vf2_depth_mean": 17.5,
+      "sabre_fidelity_mean": 0.0004622426906414208,
+      "sabre_twoq_mean": 11.0,
+      "sabre_depth_mean": 15.0
+    }
+  },
+  "completion": {
+    "agent_completion_rate": 1.0,
+    "agent_timeout_rate": 0.0,
+    "agent_mean_progress": 1.0,
+    "per_circuit_class": {
+      "mqt_bench:qft_alg_10q": {
+        "count": 5,
+        "agent_completion_rate": 1.0,
+        "agent_timeout_rate": 0.0,
+        "agent_mean_progress": 1.0
+      },
+      "mqt_bench:dj_alg_10q": {
+        "count": 6,
+        "agent_completion_rate": 1.0,
+        "agent_timeout_rate": 0.0,
+        "agent_mean_progress": 1.0
+      },
+      "mqt_bench:ghz_alg_10q": {
+        "count": 8,
+        "agent_completion_rate": 1.0,
+        "agent_timeout_rate": 0.0,
+        "agent_mean_progress": 1.0
+      },
+      "mqt_bench:qft_alg_5q": {
+        "count": 8,
+        "agent_completion_rate": 1.0,
+        "agent_timeout_rate": 0.0,
+        "agent_mean_progress": 1.0
+      },
+      "mqt_bench:dj_alg_5q": {
+        "count": 5,
+        "agent_completion_rate": 1.0,
+        "agent_timeout_rate": 0.0,
+        "agent_mean_progress": 1.0
+      },
+      "mqt_bench:ghz_alg_5q": {
+        "count": 5,
+        "agent_completion_rate": 1.0,
+        "agent_timeout_rate": 0.0,
+        "agent_mean_progress": 1.0
+      },
+      "mqt_bench:ghz_alg_8q": {
+        "count": 8,
+        "agent_completion_rate": 1.0,
+        "agent_timeout_rate": 0.0,
+        "agent_mean_progress": 1.0
+      },
+      "mqt_bench:qft_alg_8q": {
+        "count": 3,
+        "agent_completion_rate": 1.0,
+        "agent_timeout_rate": 0.0,
+        "agent_mean_progress": 1.0
+      },
+      "mqt_bench:dj_alg_8q": {
+        "count": 2,
+        "agent_completion_rate": 1.0,
+        "agent_timeout_rate": 0.0,
+        "agent_mean_progress": 1.0
+      }
+    }
+  },
+  "agent_completion_rate": 1.0,
+  "agent_timeout_rate": 0.0,
+  "agent_mean_progress": 1.0,
+  "aggregate": {
+    "agent_fidelity": {
+      "mean_across_runs": 0.7501196555367092,
+      "std_across_runs": 0.0,
+      "num_runs": 1
+    },
+    "agent_cost": {
+      "mean_across_runs": 29.247600000000002,
+      "std_across_runs": 0.0,
+      "num_runs": 1
+    },
+    "agent_twoq": {
+      "mean_across_runs": 28.98,
+      "std_across_runs": 0.0,
+      "num_runs": 1
+    },
+    "agent_depth": {
+      "mean_across_runs": 26.76,
+      "std_across_runs": 0.0,
+      "num_runs": 1
+    },
+    "agent_wall_seconds": {
+      "mean_across_runs": 5.4695066442400275,
+      "std_across_runs": 0.0,
+      "num_runs": 1
+    },
+    "agent_completed": {
+      "mean_across_runs": 1.0,
+      "std_across_runs": 0.0,
+      "num_runs": 1
+    },
+    "agent_timed_out": {
+      "mean_across_runs": 0.0,
+      "std_across_runs": 0.0,
+      "num_runs": 1
+    },
+    "agent_progress": {
+      "mean_across_runs": 1.0,
+      "std_across_runs": 0.0,
+      "num_runs": 1
+    },
+    "agent_effective_max_steps": {
+      "mean_across_runs": 239.36,
+      "std_across_runs": 0.0,
+      "num_runs": 1
+    },
+    "trivial_fidelity": {
+      "mean_across_runs": NaN,
+      "std_across_runs": NaN,
+      "num_runs": 1
+    },
+    "trivial_cost": {
+      "mean_across_runs": NaN,
+      "std_across_runs": NaN,
+      "num_runs": 1
+    },
+    "trivial_twoq": {
+      "mean_across_runs": NaN,
+      "std_across_runs": NaN,
+      "num_runs": 1
+    },
+    "trivial_depth": {
+      "mean_across_runs": NaN,
+      "std_across_runs": NaN,
+      "num_runs": 1
+    },
+    "sabre_fidelity": {
+      "mean_across_runs": 0.4454568556561852,
+      "std_across_runs": 0.0,
+      "num_runs": 1
+    },
+    "sabre_cost": {
+      "mean_across_runs": 20.4616,
+      "std_across_runs": 0.0,
+      "num_runs": 1
+    },
+    "sabre_twoq": {
+      "mean_across_runs": 20.24,
+      "std_across_runs": 0.0,
+      "num_runs": 1
+    },
+    "sabre_depth": {
+      "mean_across_runs": 22.16,
+      "std_across_runs": 0.0,
+      "num_runs": 1
+    },
+    "sabre_wall_seconds": {
+      "mean_across_runs": 4.286216188699764,
+      "std_across_runs": 0.0,
+      "num_runs": 1
+    },
+    "sabre_trivial_layout_fidelity": {
+      "mean_across_runs": NaN,
+      "std_across_runs": NaN,
+      "num_runs": 1
+    },
+    "sabre_trivial_layout_cost": {
+      "mean_across_runs": NaN,
+      "std_across_runs": NaN,
+      "num_runs": 1
+    },
+    "sabre_trivial_layout_twoq": {
+      "mean_across_runs": NaN,
+      "std_across_runs": NaN,
+      "num_runs": 1
+    },
+    "sabre_trivial_layout_depth": {
+      "mean_across_runs": NaN,
+      "std_across_runs": NaN,
+      "num_runs": 1
+    },
+    "sabre_trivial_layout_wall_seconds": {
+      "mean_across_runs": NaN,
+      "std_across_runs": NaN,
+      "num_runs": 1
+    },
+    "lookahead_fidelity": {
+      "mean_across_runs": NaN,
+      "std_across_runs": NaN,
+      "num_runs": 1
+    },
+    "lookahead_cost": {
+      "mean_across_runs": NaN,
+      "std_across_runs": NaN,
+      "num_runs": 1
+    },
+    "lookahead_twoq": {
+      "mean_across_runs": NaN,
+      "std_across_runs": NaN,
+      "num_runs": 1
+    },
+    "lookahead_depth": {
+      "mean_across_runs": NaN,
+      "std_across_runs": NaN,
+      "num_runs": 1
+    },
+    "qiskit_noise_aware_vf2_fidelity": {
+      "mean_across_runs": 0.5254665969201707,
+      "std_across_runs": 0.0,
+      "num_runs": 1
+    },
+    "qiskit_noise_aware_vf2_cost": {
+      "mean_across_runs": 20.4958,
+      "std_across_runs": 0.0,
+      "num_runs": 1
+    },
+    "qiskit_noise_aware_vf2_twoq": {
+      "mean_across_runs": 20.26,
+      "std_across_runs": 0.0,
+      "num_runs": 1
+    },
+    "qiskit_noise_aware_vf2_depth": {
+      "mean_across_runs": 23.58,
+      "std_across_runs": 0.0,
+      "num_runs": 1
+    },
+    "greedy_fidelity": {
+      "mean_across_runs": NaN,
+      "std_across_runs": NaN,
+      "num_runs": 1
+    },
+    "greedy_cost": {
+      "mean_across_runs": NaN,
+      "std_across_runs": NaN,
+      "num_runs": 1
+    },
+    "greedy_twoq": {
+      "mean_across_runs": NaN,
+      "std_across_runs": NaN,
+      "num_runs": 1
+    },
+    "greedy_depth": {
+      "mean_across_runs": NaN,
+      "std_across_runs": NaN,
+      "num_runs": 1
+    },
+    "random_fidelity": {
+      "mean_across_runs": NaN,
+      "std_across_runs": NaN,
+      "num_runs": 1
+    },
+    "random_cost": {
+      "mean_across_runs": NaN,
+      "std_across_runs": NaN,
+      "num_runs": 1
+    },
+    "random_twoq": {
+      "mean_across_runs": NaN,
+      "std_across_runs": NaN,
+      "num_runs": 1
+    },
+    "random_depth": {
+      "mean_across_runs": NaN,
+      "std_across_runs": NaN,
+      "num_runs": 1
+    }
+  },
+  "paired_tests": {
+    "agent_vs_qiskit_noise_aware_vf2_fidelity": {
+      "statistic": NaN,
+      "pvalue": NaN,
+      "statistical_unit": "run_dir_x_calibration_file_cluster",
+      "num_clusters": 1,
+      "pvalue_holm": NaN
+    },
+    "agent_vs_qiskit_noise_aware_vf2_twoq": {
+      "statistic": NaN,
+      "pvalue": NaN,
+      "statistical_unit": "run_dir_x_calibration_file_cluster",
+      "num_clusters": 1,
+      "pvalue_holm": NaN
+    },
+    "agent_vs_qiskit_noise_aware_vf2_depth": {
+      "statistic": NaN,
+      "pvalue": NaN,
+      "statistical_unit": "run_dir_x_calibration_file_cluster",
+      "num_clusters": 1,
+      "pvalue_holm": NaN
+    },
+    "agent_vs_sabre_fidelity": {
+      "statistic": NaN,
+      "pvalue": NaN,
+      "statistical_unit": "run_dir_x_calibration_file_cluster",
+      "num_clusters": 1,
+      "pvalue_holm": NaN
+    },
+    "agent_vs_sabre_twoq": {
+      "statistic": NaN,
+      "pvalue": NaN,
+      "statistical_unit": "run_dir_x_calibration_file_cluster",
+      "num_clusters": 1,
+      "pvalue_holm": NaN
+    },
+    "agent_vs_sabre_depth": {
+      "statistic": NaN,
+      "pvalue": NaN,
+      "statistical_unit": "run_dir_x_calibration_file_cluster",
+      "num_clusters": 1,
+      "pvalue_holm": NaN
+    },
+    "agent_vs_sabre_wall_seconds": {
+      "statistic": NaN,
+      "pvalue": NaN,
+      "statistical_unit": "run_dir_x_calibration_file_cluster",
+      "num_clusters": 1,
+      "pvalue_holm": NaN
+    }
+  },
+  "pooled_episode_paired_tests_diagnostic_only": {
+    "agent_vs_qiskit_noise_aware_vf2_fidelity": {
+      "statistic": 528.0,
+      "pvalue": 0.2954728324166016,
+      "statistical_unit": "episode_pair_diagnostic_only",
+      "n_episode_pairs": 50,
+      "pvalue_holm": 0.2954728324166016
+    },
+    "agent_vs_qiskit_noise_aware_vf2_twoq": {
+      "statistic": 0.0,
+      "pvalue": 6.878523845086785e-10,
+      "statistical_unit": "episode_pair_diagnostic_only",
+      "n_episode_pairs": 50,
+      "pvalue_holm": 4.124288661688306e-09
+    },
+    "agent_vs_qiskit_noise_aware_vf2_depth": {
+      "statistic": 109.0,
+      "pvalue": 2.03695278146404e-06,
+      "statistical_unit": "episode_pair_diagnostic_only",
+      "n_episode_pairs": 50,
+      "pvalue_holm": 6.11085834439212e-06
+    },
+    "agent_vs_sabre_fidelity": {
+      "statistic": 300.0,
+      "pvalue": 0.0008475708983652908,
+      "statistical_unit": "episode_pair_diagnostic_only",
+      "n_episode_pairs": 50,
+      "pvalue_holm": 0.0016951417967305815
+    },
+    "agent_vs_sabre_twoq": {
+      "statistic": 0.0,
+      "pvalue": 6.873814436147176e-10,
+      "statistical_unit": "episode_pair_diagnostic_only",
+      "n_episode_pairs": 50,
+      "pvalue_holm": 4.124288661688306e-09
+    },
+    "agent_vs_sabre_depth": {
+      "statistic": 17.5,
+      "pvalue": 3.879914729920934e-09,
+      "statistical_unit": "episode_pair_diagnostic_only",
+      "n_episode_pairs": 50,
+      "pvalue_holm": 1.5519658919683737e-08
+    },
+    "agent_vs_sabre_wall_seconds": {
+      "statistic": 0.0,
+      "pvalue": 1.7763568394002505e-15,
+      "statistical_unit": "episode_pair_diagnostic_only",
+      "n_episode_pairs": 50,
+      "pvalue_holm": 1.2434497875801753e-14
+    }
+  },
+  "effect_sizes": {
+    "agent_vs_qiskit_noise_aware_vf2_fidelity": {
+      "mean_improvement": 0.2246530586165385,
+      "mean_relative_improvement": 0.42753061742318127,
+      "ci95_low": 0.2246530586165385,
+      "ci95_high": 0.2246530586165385,
+      "rank_biserial": 1.0,
+      "n": 1
+    },
+    "agent_vs_qiskit_noise_aware_vf2_twoq": {
+      "mean_improvement": -8.719999999999999,
+      "mean_relative_improvement": -0.43040473840078963,
+      "ci95_low": -8.719999999999999,
+      "ci95_high": -8.719999999999999,
+      "rank_biserial": -1.0,
+      "n": 1
+    },
+    "agent_vs_qiskit_noise_aware_vf2_depth": {
+      "mean_improvement": -3.1800000000000033,
+      "mean_relative_improvement": -0.1348600508905854,
+      "ci95_low": -3.1800000000000033,
+      "ci95_high": -3.1800000000000033,
+      "rank_biserial": -1.0,
+      "n": 1
+    },
+    "agent_vs_sabre_fidelity": {
+      "mean_improvement": 0.304662799880524,
+      "mean_relative_improvement": 0.6839333506984354,
+      "ci95_low": 0.304662799880524,
+      "ci95_high": 0.304662799880524,
+      "rank_biserial": 1.0,
+      "n": 1
+    },
+    "agent_vs_sabre_twoq": {
+      "mean_improvement": -8.740000000000002,
+      "mean_relative_improvement": -0.43181818181818193,
+      "ci95_low": -8.740000000000002,
+      "ci95_high": -8.740000000000002,
+      "rank_biserial": -1.0,
+      "n": 1
+    },
+    "agent_vs_sabre_depth": {
+      "mean_improvement": -4.600000000000001,
+      "mean_relative_improvement": -0.20758122743682317,
+      "ci95_low": -4.600000000000001,
+      "ci95_high": -4.600000000000001,
+      "rank_biserial": -1.0,
+      "n": 1
+    },
+    "agent_vs_sabre_wall_seconds": {
+      "mean_improvement": -1.1832904555402637,
+      "mean_relative_improvement": -0.2760687756860949,
+      "ci95_low": -1.1832904555402637,
+      "ci95_high": -1.1832904555402637,
+      "rank_biserial": -1.0,
+      "n": 1
+    }
+  },
+  "cluster_pair_summaries": {
+    "agent_vs_qiskit_noise_aware_vf2_fidelity": [
+      {
+        "run_dir": "/workspace/mqt_completion_finetune/seed8_checkpoints",
+        "calibration_file": "/workspace/downloaded_calibrations/ibm_marrakesh_calibration.json",
+        "episode_pairs": 50,
+        "agent_mean": 0.7501196555367092,
+        "baseline_mean": 0.5254665969201707
+      }
+    ],
+    "agent_vs_qiskit_noise_aware_vf2_twoq": [
+      {
+        "run_dir": "/workspace/mqt_completion_finetune/seed8_checkpoints",
+        "calibration_file": "/workspace/downloaded_calibrations/ibm_marrakesh_calibration.json",
+        "episode_pairs": 50,
+        "agent_mean": 28.98,
+        "baseline_mean": 20.26
+      }
+    ],
+    "agent_vs_qiskit_noise_aware_vf2_depth": [
+      {
+        "run_dir": "/workspace/mqt_completion_finetune/seed8_checkpoints",
+        "calibration_file": "/workspace/downloaded_calibrations/ibm_marrakesh_calibration.json",
+        "episode_pairs": 50,
+        "agent_mean": 26.76,
+        "baseline_mean": 23.58
+      }
+    ],
+    "agent_vs_sabre_fidelity": [
+      {
+        "run_dir": "/workspace/mqt_completion_finetune/seed8_checkpoints",
+        "calibration_file": "/workspace/downloaded_calibrations/ibm_marrakesh_calibration.json",
+        "episode_pairs": 50,
+        "agent_mean": 0.7501196555367092,
+        "baseline_mean": 0.4454568556561852
+      }
+    ],
+    "agent_vs_sabre_twoq": [
+      {
+        "run_dir": "/workspace/mqt_completion_finetune/seed8_checkpoints",
+        "calibration_file": "/workspace/downloaded_calibrations/ibm_marrakesh_calibration.json",
+        "episode_pairs": 50,
+        "agent_mean": 28.98,
+        "baseline_mean": 20.24
+      }
+    ],
+    "agent_vs_sabre_depth": [
+      {
+        "run_dir": "/workspace/mqt_completion_finetune/seed8_checkpoints",
+        "calibration_file": "/workspace/downloaded_calibrations/ibm_marrakesh_calibration.json",
+        "episode_pairs": 50,
+        "agent_mean": 26.76,
+        "baseline_mean": 22.16
+      }
+    ],
+    "agent_vs_sabre_wall_seconds": [
+      {
+        "run_dir": "/workspace/mqt_completion_finetune/seed8_checkpoints",
+        "calibration_file": "/workspace/downloaded_calibrations/ibm_marrakesh_calibration.json",
+        "episode_pairs": 50,
+        "agent_mean": 5.4695066442400275,
+        "baseline_mean": 4.286216188699764
+      }
+    ]
+  },
+  "per_run_paired_tests": [
+    {
+      "run_dir": "/workspace/mqt_completion_finetune/seed8_checkpoints",
+      "calibration_file": "/workspace/downloaded_calibrations/ibm_marrakesh_calibration.json",
+      "tests": {
+        "agent_vs_sabre_fidelity": {
+          "statistic": 300.0,
+          "pvalue": 0.0008475708983652908
+        },
+        "agent_vs_sabre_twoq": {
+          "statistic": 0.0,
+          "pvalue": 6.873814436147176e-10
+        },
+        "agent_vs_sabre_depth": {
+          "statistic": 17.5,
+          "pvalue": 3.879914729920934e-09
+        }
+      }
+    }
+  ],
+  "stouffer_combined_tests": {
+    "agent_vs_sabre_fidelity": {
+      "z": 3.3367731736706023,
+      "pvalue": 0.0008475708983652907,
+      "n": 1
+    },
+    "agent_vs_sabre_twoq": {
+      "z": 6.168965679762407,
+      "pvalue": 6.873814436147128e-10,
+      "n": 1
+    },
+    "agent_vs_sabre_depth": {
+      "z": 5.889233267583548,
+      "pvalue": 3.8799147299209044e-09,
+      "n": 1
+    }
+  },
+  "paired_deltas": {
+    "agent_minus_sabre_fidelity": {
+      "mean_delta": 0.304662799880524,
+      "std_delta": 0.0,
+      "n": 1
+    },
+    "agent_minus_sabre_twoq": {
+      "mean_delta": 8.740000000000002,
+      "std_delta": 0.0,
+      "n": 1
+    },
+    "agent_minus_sabre_depth": {
+      "mean_delta": 4.600000000000001,
+      "std_delta": 0.0,
+      "n": 1
+    }
+  },
+  "artifact_paths": {
+    "json": "/workspace/mqt_completion_finetune/reviewer_benchmark_shards/ibm_marrakesh_calibration_seed8/reviewer_benchmark_summary.json",
+    "plot": "/workspace/mqt_completion_finetune/reviewer_benchmark_shards/ibm_marrakesh_calibration_seed8/reviewer_benchmark.png",
+    "pareto_plot": "/workspace/mqt_completion_finetune/reviewer_benchmark_shards/ibm_marrakesh_calibration_seed8/reviewer_pareto_fidelity_twoq.png",
+    "episode_records": "/workspace/mqt_completion_finetune/reviewer_benchmark_shards/ibm_marrakesh_calibration_seed8/reviewer_benchmark_episodes.jsonl"
+  }
+}

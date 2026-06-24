@@ -1,0 +1,28 @@
+class_key,class_label,method_key,method_label,exact_fidelity
+mqt_bench:dj_alg_5q,DJ-5q,agent,Agent,0.24679358824803344
+mqt_bench:ghz_alg_5q,GHZ-5q,agent,Agent,0.9785903245067252
+mqt_bench:qft_alg_5q,QFT-5q,agent,Agent,0.9648716109590183
+mqt_bench:dj_alg_8q,DJ-8q,agent,Agent,0.24009400052700217
+mqt_bench:ghz_alg_8q,GHZ-8q,agent,Agent,0.9386327695430647
+mqt_bench:qft_alg_8q,QFT-8q,agent,Agent,0.8439225670322149
+mqt_bench:dj_alg_10q,DJ-10q,agent,Agent,0.2338206894050541
+mqt_bench:ghz_alg_10q,GHZ-10q,agent,Agent,0.8456399207817945
+mqt_bench:qft_alg_10q,QFT-10q,agent,Agent,0.7615936102658456
+mqt_bench:dj_alg_5q,DJ-5q,sabre,SABRE-best20,0.04982684844918653
+mqt_bench:ghz_alg_5q,GHZ-5q,sabre,SABRE-best20,0.2482203124681619
+mqt_bench:qft_alg_5q,QFT-5q,sabre,SABRE-best20,0.6063006997447559
+mqt_bench:dj_alg_8q,DJ-8q,sabre,SABRE-best20,0.000631011629295047
+mqt_bench:ghz_alg_8q,GHZ-8q,sabre,SABRE-best20,0.24645138400582944
+mqt_bench:qft_alg_8q,QFT-8q,sabre,SABRE-best20,0.22515729016838892
+mqt_bench:dj_alg_10q,DJ-10q,sabre,SABRE-best20,0.23747983320614324
+mqt_bench:ghz_alg_10q,GHZ-10q,sabre,SABRE-best20,0.9544163819868212
+mqt_bench:qft_alg_10q,QFT-10q,sabre,SABRE-best20,0.7919667217180268
+mqt_bench:dj_alg_5q,DJ-5q,qiskit_noise_aware_vf2,Target-aware SABRE,0.18136995374134468
+mqt_bench:ghz_alg_5q,GHZ-5q,qiskit_noise_aware_vf2,Target-aware SABRE,0.24870087737860852
+mqt_bench:qft_alg_5q,QFT-5q,qiskit_noise_aware_vf2,Target-aware SABRE,0.7583809133330334
+mqt_bench:dj_alg_8q,DJ-8q,qiskit_noise_aware_vf2,Target-aware SABRE,0.00030091541377126184
+mqt_bench:ghz_alg_8q,GHZ-8q,qiskit_noise_aware_vf2,Target-aware SABRE,0.2467357520542273
+mqt_bench:qft_alg_8q,QFT-8q,qiskit_noise_aware_vf2,Target-aware SABRE,0.23004541164685782
+mqt_bench:dj_alg_10q,DJ-10q,qiskit_noise_aware_vf2,Target-aware SABRE,0.23801537249956506
+mqt_bench:ghz_alg_10q,GHZ-10q,qiskit_noise_aware_vf2,Target-aware SABRE,0.9568443069927789
+mqt_bench:qft_alg_10q,QFT-10q,qiskit_noise_aware_vf2,Target-aware SABRE,0.8144846223031456

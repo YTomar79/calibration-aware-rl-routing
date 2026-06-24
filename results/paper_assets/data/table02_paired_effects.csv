@@ -1,0 +1,6 @@
+comparison_key,comparison_label,metric,mean_improvement_positive_favors_agent,ci95_low,ci95_high,mean_relative_improvement,rank_biserial,holm_adjusted_pvalue,num_cells
+agent_vs_sabre_fidelity,Agent vs SABRE-best20,Exact fidelity,0.2866778366375654,0.27137722133097497,0.29879199694112035,0.6513661933844392,1.0,5.953876646318184e-06,30
+agent_vs_qiskit_noise_aware_vf2_fidelity,Agent vs Target-aware SABRE,Exact fidelity,0.24611253034067399,0.22512448110806924,0.26718907692179517,0.5259279764563735,1.0,5.953876646318184e-06,30
+agent_vs_sabre_twoq,Agent vs SABRE-best20,Two-qubit count,-8.626357849274228,-8.72279285714286,-8.494046284271288,-0.4234000039577767,-1.0,2.499372827966625e-06,30
+agent_vs_sabre_depth,Agent vs SABRE-best20,Depth,-4.614373752457377,-4.627697148186695,-4.603854875283447,-0.20670097419971095,-1.0,2.499372827966625e-06,30
+agent_vs_sabre_wall_seconds,Agent vs SABRE-best20,Wall-clock time (s),-1.0851131212084508,-1.155471854795298,-1.0033489726144982,-0.2539667320626826,-1.0,1.30385160446167e-08,30

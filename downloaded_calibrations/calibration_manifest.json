@@ -1,0 +1,60 @@
+{
+  "downloaded_at_utc": "2026-05-21T15:53:49.510068+00:00",
+  "requested_backends": [
+    "ibm_fez",
+    "ibm_kingston",
+    "ibm_marrakesh"
+  ],
+  "requested_backend_names_raw": "auto",
+  "snapshot_iso": null,
+  "snapshot_isos": [
+    null
+  ],
+  "downloaded": [
+    {
+      "backend_name": "ibm_fez",
+      "requested_datetime": null,
+      "output_path": "/workspace/downloaded_calibrations/ibm_fez_calibration.json",
+      "backend_version": "1.3.37",
+      "last_update_date": "2026-05-21 11:37:32-04:00",
+      "num_qubits": 156,
+      "processor_type": {
+        "family": "Heron",
+        "revision": "2"
+      }
+    },
+    {
+      "backend_name": "ibm_kingston",
+      "requested_datetime": null,
+      "output_path": "/workspace/downloaded_calibrations/ibm_kingston_calibration.json",
+      "backend_version": "1.0.0",
+      "last_update_date": "2026-05-21 11:36:34-04:00",
+      "num_qubits": 156,
+      "processor_type": {
+        "family": "Heron",
+        "revision": "2"
+      }
+    },
+    {
+      "backend_name": "ibm_marrakesh",
+      "requested_datetime": null,
+      "output_path": "/workspace/downloaded_calibrations/ibm_marrakesh_calibration.json",
+      "backend_version": "1.0.21",
+      "last_update_date": "2026-05-21 11:01:04-04:00",
+      "num_qubits": 156,
+      "processor_type": {
+        "family": "Heron",
+        "revision": "2"
+      }
+    }
+  ],
+  "failed": [],
+  "metadata": {
+    "git_revision": null,
+    "python_version": "3.11.14 | packaged by conda-forge | (main, Jan 26 2026, 23:48:32) [GCC 14.3.0]",
+    "package_versions": {
+      "qiskit": "2.4.1",
+      "qiskit-ibm-runtime": "0.47.0"
+    }
+  }
+}
