@@ -110,7 +110,7 @@ Assumes Python 3.10+ and that all commands run from the repository root.
 ### 1. Clone and install
 
 ```bash
-git clone https://github.com/<your-username>/calibration-aware-rl-routing.git
+git clone https://github.com/YTomar79/calibration-aware-rl-routing.git
 cd calibration-aware-rl-routing
 bash setup_env.sh          # creates .venv and installs the declared dependencies
 ```
