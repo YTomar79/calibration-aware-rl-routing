@@ -7,6 +7,8 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2606.12816-b31b1b.svg)](https://arxiv.org/abs/2606.12816)
 [![CI](https://github.com/YTomar79/calibration-aware-rl-routing/actions/workflows/ci.yml/badge.svg)](https://github.com/YTomar79/calibration-aware-rl-routing/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![DOI](https://zenodo.org/badge/1278656161.svg)](https://doi.org/10.5281/zenodo.20837690)
+
 
 ---
 
